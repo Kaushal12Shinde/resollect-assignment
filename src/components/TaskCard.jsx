@@ -66,8 +66,8 @@ export default function TaskCard({ task, toggleComplete, deleteTask }) {
   };
 
   return (
-    <div className={`p-4 border rounded shadow-sm bg-white ${isOverdue() ? 'border-red-300 bg-red-50' : ''}`}>
-      <div className="flex justify-between items-center">
+    <div className='p-4 rounded-lg task-shadow bg-white'>
+      <div className={`flex justify-between rounded-[4px] items-center border-l-[2px] pl-[16px] ${isOverdue() ? 'border-l-red-300 bg-red-50' : 'border-l-[#8885ff]'}`}>
         <div className="flex-1">
           <h3 className={`text-lg font-semibold ${task.isCompleted ? 'line-through' : ''}`}>
             {task.title}
