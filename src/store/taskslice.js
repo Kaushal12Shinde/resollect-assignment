@@ -61,64 +61,67 @@ const taskslice = createSlice({
   extraReducers: (builder) => {
     builder
       // Fetch tasks
-      .addCase(fetchTasksAsync.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(fetchTasksAsync.fulfilled, (state, action) => {
-        state.tasks = action.payload;
-        state.doRender = true;
-        state.loading = false;
-      })
-      .addCase(fetchTasksAsync.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-      })
+        .addCase(fetchTasksAsync.pending, (state) => {
+          state.loading = true;
+          state.error = null;
+        })
+        .addCase(fetchTasksAsync.fulfilled, (state, action) => {
+          state.tasks = action.payload;
+          state.doRender = true;
+          state.loading = false;
+        })
+        .addCase(fetchTasksAsync.rejected, (state, action) => {
+          state.loading = false;
+          state.error = action.payload;
+        })
+
       // Add task
-      .addCase(addTaskAsync.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(addTaskAsync.fulfilled, (state, action) => {
-        state.tasks.push(action.payload);
-        state.doRender = true;
-        state.loading = false;
-      })
-      .addCase(addTaskAsync.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-      })
+        .addCase(addTaskAsync.pending, (state) => {
+          state.loading = true;
+          state.error = null;
+        })
+        .addCase(addTaskAsync.fulfilled, (state, action) => {
+          state.tasks.push(action.payload);
+          state.doRender = true;
+          state.loading = false;
+        })
+        .addCase(addTaskAsync.rejected, (state, action) => {
+          state.loading = false;
+          state.error = action.payload;
+        })
+
       // Delete task
-      .addCase(deleteTaskAsync.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(deleteTaskAsync.fulfilled, (state, action) => {
-        state.tasks = state.tasks.filter(task => task.id !== action.payload);
-        state.doRender = true;
-        state.loading = false;
-      })
-      .addCase(deleteTaskAsync.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-      })
+        .addCase(deleteTaskAsync.pending, (state) => {
+          state.loading = true;
+          state.error = null;
+        })
+        .addCase(deleteTaskAsync.fulfilled, (state, action) => {
+          state.tasks = state.tasks.filter(task => task.id !== action.payload);
+          state.doRender = true;
+          state.loading = false;
+        })
+        .addCase(deleteTaskAsync.rejected, (state, action) => {
+          state.loading = false;
+          state.error = action.payload;
+        })
+
       // Update task
-      .addCase(updateTaskAsync.pending, (state) => {
-        state.loading = true;
-        state.error = null;
-      })
-      .addCase(updateTaskAsync.fulfilled, (state, action) => {
-        const index = state.tasks.findIndex(t => t.id === action.payload.id);
-        if (index !== -1) {
-          state.tasks[index] = { ...state.tasks[index], ...action.payload };
-        }
-        state.doRender = true;
-        state.loading = false;
-      })
-      .addCase(updateTaskAsync.rejected, (state, action) => {
-        state.loading = false;
-        state.error = action.payload;
-      });
+        .addCase(updateTaskAsync.pending, (state) => {
+          state.loading = true;
+          state.error = null;
+        })
+        .addCase(updateTaskAsync.fulfilled, (state, action) => {
+          const index = state.tasks.findIndex(t => t.id === action.payload.id);
+          if (index !== -1) {
+            state.tasks[index] = { ...state.tasks[index], ...action.payload };
+          }
+          state.doRender = true;
+          state.loading = false;
+        })
+        .addCase(updateTaskAsync.rejected, (state, action) => {
+          state.loading = false;
+          state.error = action.payload;
+        });
   }
 });
 

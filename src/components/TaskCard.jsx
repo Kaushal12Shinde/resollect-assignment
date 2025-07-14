@@ -11,7 +11,6 @@ export default function TaskCard({ task, toggleComplete, deleteTask }) {
     return deadline <= now && !task.isCompleted;
   };
 
-  // Check if task becomes overdue and trigger re-render
   useEffect(() => {
     if (!task.isCompleted) {
       const deadline = new Date(task.deadline);
@@ -19,7 +18,6 @@ export default function TaskCard({ task, toggleComplete, deleteTask }) {
       const timeUntilDeadline = deadline - now;
 
       if (timeUntilDeadline > 0) {
-        // Task is not overdue yet, set a timer
         const timer = setTimeout(() => {
           dispatch(triggerRender(true));
         }, timeUntilDeadline);
