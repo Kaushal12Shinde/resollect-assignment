@@ -50,6 +50,7 @@ A React-based todo list application built with **Redux**, **Firebase**, and **Ta
   - No extra DB call when switching tabs.
 
 > **Note**: UI was designed in Excalidraw first as a wireframe to plan layout and structure cleanly before coding.
+![UI Wireframe](public/Ui-excalidrwa.png)
 
 ---
 
