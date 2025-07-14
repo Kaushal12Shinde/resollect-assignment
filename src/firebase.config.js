@@ -10,12 +10,12 @@ import {
 } from 'firebase/firestore';
 
 const firebaseConfig = {
-  apiKey:import.meta.env.VITE_API_KEY,
-  authDomain:import.meta.env.VITE_AUTH_DOMAIN,
-  projectId:import.meta.env.VITE_PROJECT_ID,
-  storageBucket:import.meta.env.VITE_STORAGE_BUCKET,
-  messagingSenderId:import.meta.env.VITE_MESSAGING_SENDER_ID,
-  appId:import.meta.env.VITE_APP_ID
+  apiKey:'AIzaSyBChA_66nVdjGCkrFmkUKwBEzY41pqrXMY',
+  authDomain:'todo-5ba9c.firebaseapp.com',
+  projectId:'todo-5ba9c',
+  storageBucket:'todo-5ba9c.firebasestorage.app',
+  messagingSenderId:'461366767571',
+  appId:1:'461366767571:web:68521477f6e9b2eb6d0926'
 };
 
 const app = initializeApp(firebaseConfig);
