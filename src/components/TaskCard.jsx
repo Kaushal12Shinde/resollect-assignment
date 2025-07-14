@@ -34,7 +34,7 @@ export default function TaskCard({ task, toggleComplete, deleteTask }) {
     const now = new Date();
     const diff = deadline - now;
 
-    if (diff <= 0) return 'Overdue';
+    if (diff <= 0) return '';
 
     const days = Math.floor(diff / (1000 * 60 * 60 * 24));
     const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
@@ -67,15 +67,17 @@ export default function TaskCard({ task, toggleComplete, deleteTask }) {
 
   return (
     <div className='p-4 rounded-lg task-shadow bg-white'>
-      <div className={`flex justify-between rounded-[4px] items-center border-l-[2px] pl-[16px] ${isOverdue() ? 'border-l-red-300 bg-red-50' : 'border-l-[#8885ff]'}`}>
+      <div className={`flex justify-between rounded-[4px] items-center border-l-[2px] pl-[16px] ${isOverdue() ? 'border-l-red-300' : 'border-l-[#8885ff]'}`}>
         <div className="flex-1">
-          <h3 className={`text-lg font-semibold ${task.isCompleted ? 'line-through' : ''}`}>
+          <h3 className='text-lg font-semibold'>
             {task.title}
           </h3>
-          <p className={`text-sm ${getStatusColor()}`}>
-            {getTimeRemaining()}
-          </p>
-          <span className={`text-xs px-2 py-1 rounded ${getStatusColor()} bg-opacity-10`}>
+          { task.isCompleted ?'' :(
+            <p className={`text-sm ${getStatusColor()}`}>
+              {getTimeRemaining()}
+            </p>) 
+          }
+          <span className={`text-xs py-1 rounded ${getStatusColor()} bg-opacity-10`}>
             {getStatusText()}
           </span>
         </div>
